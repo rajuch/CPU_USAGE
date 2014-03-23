@@ -12,4 +12,4 @@ The webapp doesn't use any web frameworks like Django. Neither does the implemen
 Content yet to be added.
 
 
-Refer [DOCS](../docs/) for details of the application.
+Refer [DOCS](docs/) for details of the application.
