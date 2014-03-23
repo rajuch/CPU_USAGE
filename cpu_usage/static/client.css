@@ -1,0 +1,12 @@
+/*Style component of the webapp client.
+
+  @created: 21 Mar, 2014
+  @author: Anshu Kumar, <anshu.choubey@imaginea.com>
+*/
+table, td, th {
+border:1px solid green;
+}
+th {
+background-color:green;
+color:white;
+}

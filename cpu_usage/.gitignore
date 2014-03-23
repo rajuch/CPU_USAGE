@@ -1,0 +1,8 @@
+temp/
+build/
+.project
+.pydevproject
+*.py[cdo]
+*.swp
+*~
+.metadata
