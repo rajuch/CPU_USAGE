@@ -19,18 +19,28 @@ The application has been developed on Google Chrome as a browser.
 
 
 ##Implementation
-Implementation can be found [HERE](../app/)
+Script implementation can be found [HERE](../app/).
 
++ A server is run using the ```BaseHTTPServer``` python library. GET method of the handler is over-ridden.
++ Simultaneously another python process ```record_usage.py``` is invoked using ```subprocess.POPEN``` until the server is closed. The script maintains details for the processes at an interval of sampling frequency.
++ The script above also records cpu times for the processes in a queue per process. The length of the queue is interval over which the average is to be calculated.
++ After the processing is done the results are written into a JSON file.
 
-##Tests
-Tests can be found [HERE](../tests/)
+When looked from Client's perspective, it fires series of XHRs at an interval of 1 second.
+
++ When the app gets one of those XHRs from the client, it opens the JSON file and uses the details stored there to retrieve details for all processes it finds running then.
++ The fetched details are JSONified and the response text is sent to the Client.
++ Client iterates over the object and prepares the table of results.
 
 
 ##Assumptions
 
-Content yet to be added.
+No assumptions as such. However, following points needs to be mentioned here.
+
++ A process is distinguished by its PID and not its name.
++ Only the processes at the time an XHR is fired are displayed.
++ States are ignored. Sleeping, Disk-sleeping, Running etc. all are displayed.
 
 
-##Algorithm
+**Tests** can be found [HERE](../tests/)
 
-Content yet to be added.

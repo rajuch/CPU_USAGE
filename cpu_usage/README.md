@@ -9,7 +9,12 @@ The webapp doesn't use any web frameworks like Django. Neither does the implemen
 
 ##BUILD & Run(Install) Instructions
 
-Content yet to be added.
++ You would need to have ```setuptools``` installed in your system for this. If you don't have one, follow the <a href="https://pypi.python.org/pypi/setuptools#id140" target="_blank">link</a>. Else skip the step.
++ Clone the project and change path to the ```CPU_USAGE/cpu_usage``` directory.
++ Build & Install the application using: ```sudo python setup.py install```
++ Run the command from the console: ```python -m app.server```
+
+Application is ready and set up. Goto the browser and open the link ```http://localhost:8845/stats```
 
 
 Refer [DOCS](docs/) for details of the application.
