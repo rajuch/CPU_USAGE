@@ -27,7 +27,7 @@ function InvokeXHR() {
 	xmlhttp.send();
 
     function DisplayTable() {
-        var sHtml = "<table><tr><th>PID</th><th>NAME</th><th>USER TIME</th><th>SYSTEM TIME</th><th>STATUS</th></tr>";
+        var sHtml = "<table><tr><th>PID</th><th>NAME</th><th>USER AVG. TIME</th><th>SYSTEM AVG. TIME</th><th>STATUS</th></tr>";
         for (i=0; i<objectData.length; i++) {
         	obj = objectData[i]
             sHtml += "<tr><td>" + obj.pid + "</td>";
