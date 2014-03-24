@@ -1,8 +1,14 @@
-temp/
+# Directory pattern.
 build/
+dist/
+temp/
+*.egg-info/
+
+# File pattern.
+.metadata
 .project
 .pydevproject
+*.egg
 *.py[cdo]
 *.swp
 *~
-.metadata
