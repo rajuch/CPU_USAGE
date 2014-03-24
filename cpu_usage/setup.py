@@ -4,16 +4,16 @@
 @author: Anshu Kumar, <anshu.choubey@imaginea.com>
 '''
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
-    name = "CPU USAGE",
-    version = "0.1",
-    packages = ['app'],
-    install_requires = ['psutil>=2.0.0'],
-    
+    name="CPU USAGE",
+    version="0.1",
+    packages=['app'],
+    install_requires=['psutil>=2.0.0'],
+
     # Metadata.
-    author = "Anshu Kumar",
-    author_email = "anshu.choubey@imaginea.com",
-    description = "This is a Webapp to display CPU usage on system.",
+    author="Anshu Kumar",
+    author_email="anshu.choubey@imaginea.com",
+    description="This is a Webapp to display CPU usage on system.",
 )

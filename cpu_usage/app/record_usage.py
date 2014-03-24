@@ -22,7 +22,7 @@ from decimal import Decimal
 from settings import SAMPLING_FREQ, AVG_INTERVAL, STORE_FILE
 
 
-class Queue:
+class Queue(object):
     """Queue data-structure implementation."""
 
     def __init__(self, maxsize='inf'):
