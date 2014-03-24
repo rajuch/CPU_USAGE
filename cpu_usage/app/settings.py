@@ -31,7 +31,10 @@ HOST = 'localhost'
 PORT = 8845
 
 # Messages for web server.
-START_MSG = 'Started HTTP Server, use <Ctrl-C> to stop ...'
+START_MSG = '\n'.join([
+    'Started HTTP Server, use <Ctrl-C> to stop ...',
+    'Please open the URL http://localhost:8845/stats in browser.',
+    ])
 STOP_MSG = 'Stopping HTTP Server...'
 UNKNOWN_REQ = 'Unknown request.'
 
