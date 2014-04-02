@@ -15,6 +15,8 @@ STATIC_PATH = os.path.join(PROJ_PATH, 'static')
 SAMPLING_FREQ = 1  # in seconds.
 # Time interval over which average is calculated.
 AVG_INTERVAL = 60  # in seconds.
+# Decimal places to round to.
+ROUND_TO = 2
 
 # Host for which the web server is to be run.
 HOST = 'localhost'
