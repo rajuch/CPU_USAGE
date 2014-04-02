@@ -10,15 +10,6 @@ PROJ_PATH = os.path.dirname(os.path.dirname(os.path.join(os.getcwd(),
                                                          __file__)))
 # Static components path.
 STATIC_PATH = os.path.join(PROJ_PATH, 'static')
-# Record data script path.
-RECORD_USAGE = os.path.join(PROJ_PATH, 'app/record_usage.py')
-# Data storage directory path.
-STORE_PATH = os.path.join(PROJ_PATH, 'temp')
-if not os.path.exists(STORE_PATH):
-    os.makedirs(STORE_PATH)
-
-# Storage file path.
-STORE_FILE = os.path.join(STORE_PATH, 'store')
 
 # Sampling frequency to track cpu usage.
 SAMPLING_FREQ = 1  # in seconds.
@@ -41,3 +32,8 @@ UNKNOWN_REQ = 'Unknown request.'
 # URLs.
 STATS = '/stats'
 USAGE = '/cpu_usage'
+
+# HTTP error codes.
+HTTP_INTERNAL_SERVER_ERROR = 500
+HTTP_NOT_FOUND = 404
+HTTP_OK = 200
