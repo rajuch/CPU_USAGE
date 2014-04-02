@@ -37,14 +37,16 @@ persistent=yes
 disable=
 # Never going to use these
 # I0011: Locally disabling
+# W0141: Used builtin function
 # W0142: Used * or ** magic
-    I0011,W0142,
+    I0011,W0141,W0142,
     
 # Might use these when the code is in better shape
 # BaseHTTPRequestHandler triggers this
+# W0110: map/filter on lambda could be replaced by comprehension
 # W0201: Attribute defined outside __init__
 # W0403: Relative import.
-    W0201,W0403,
+    W0110,W0201,W0403,
     
 # ignore not working. will remove after it works.
 # E0001: syntax error raised for a module
