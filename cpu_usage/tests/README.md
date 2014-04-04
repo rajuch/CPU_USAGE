@@ -1,6 +1,6 @@
 ##Tests
 
-__Not Implemented Yet__ :pensive:
+Have implemented only the PeekableQueue class tests. Remaining to be added.
 
 
 **Code Implementation** can be found [HERE](../app/)
