@@ -9,6 +9,8 @@ the usages over 60 seconds is also calculated and updated for every process.
 @todo(Implement Logging)
 '''
 
+# pylint: disable=C0103
+
 import psutil
 import time
 
@@ -58,6 +60,20 @@ class PeekableQueue(object):
     def size(self):
         """Calculate and return length of the queue."""
         return len(self.items)
+
+    def get_avg(self, round_to=settings.ROUND_TO):
+        """Calculates average of the CPU usage over the interval.
+
+        @param round_to: Number of places after the decimal to round the value
+            upto. Defaults to 2.
+        @raise ZeroDivisionError: Empty queue average calculation attempt.
+        @return: Calculated average of the CPU usage for the process.
+        """
+        try:
+            return round(
+                Decimal(sum(self.items) / float(self.size())), round_to)
+        except ZeroDivisionError:
+            raise
 
 
 class RecordUsage(object):
@@ -129,13 +145,13 @@ class RecordUsage(object):
             user_avg_q = avg_q.setdefault('user_avg_q',
                                           PeekableQueue(self.avg_interval))
             user_avg_q.enqueue(user)
-            user_avg = get_avg(user_avg_q)
+            user_avg = user_avg_q.get_avg()
 
             # System CPU time.
             sys_avg_q = avg_q.setdefault('sys_avg_q',
                                          PeekableQueue(self.avg_interval))
             sys_avg_q.enqueue(_sys)
-            sys_avg = get_avg(sys_avg_q)
+            sys_avg = sys_avg_q.get_avg()
             # Update the details object for the process.
             with self.lock:
                 existing.update(user_avg=user_avg, sys_avg=sys_avg, **_proc)
@@ -185,19 +201,6 @@ class RecordUsage(object):
             time.sleep(self.sampling_freq)
 
 
-def get_avg(q_obj, round_to=settings.ROUND_TO):
-    """Calculates average of the CPU usage over the interval.
-
-    @param q_obj: Queue containing usage for process whose average is to
-        be calculated.
-    @param round_to: Number of places after the decimal to round the value
-        upto. Defaults to 2.
-    @return: Calculated average of the CPU usage for the process.
-    """
-    return round(Decimal(sum(q_obj.items) / q_obj.size()), round_to)
-
-
 if __name__ == '__main__':
-    # pylint: disable=C0103
     ru_obj = RecordUsage()
     ru_obj.add_processes()
